@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Conditional — интерактивное упражнение</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;padding:20px;min-height:100vh;
+  font-family:Segoe UI,Tahoma,Arial,sans-serif;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:#283044;
+}
+.container{
+  max-width:900px;margin:0 auto;background:#fff;border-radius:20px;
+  padding:32px;box-shadow:0 15px 45px rgba(0,0,0,.25)
+}
+h1{color:#667eea;text-align:center;margin:0 0 8px;font-size:clamp(28px,5vw,40px)}
+.subtitle{text-align:center;color:#667;margin:0 0 24px}
+.info,.checklist{
+  padding:18px;border-radius:12px;margin-bottom:26px
+}
+.info{background:#f1f3ff;border-left:5px solid #667eea}
+.checklist{background:#fff6d9;border-left:5px solid #e4b51d}
+.formula{
+  background:#fff;border:2px dashed #667eea;border-radius:8px;
+  padding:12px;margin-top:12px;font-family:monospace
+}
+.section{margin-top:32px}
+.section-title{
+  color:#764ba2;border-bottom:3px solid #667eea;
+  padding-bottom:8px
+}
+.exercise{
+  background:#f8f9ff;border:2px solid #e5e9f5;border-radius:12px;
+  padding:18px;margin:14px 0
+}
+.exercise.correct{border-color:#6bc47b;background:#f2fff4}
+.exercise.incorrect{border-color:#e57373;background:#fff5f5}
+.num{
+  display:inline-flex;width:30px;height:30px;border-radius:50%;
+  align-items:center;justify-content:center;background:#667eea;
+  color:#fff;font-weight:bold;margin-right:8px
+}
+input,textarea{
+  font:inherit;border:2px solid #d7dbe5;border-radius:8px;
+  padding:9px 11px;background:#fff
+}
+input{width:110px;max-width:35vw}
+input:focus,textarea:focus{
+  outline:none;border-color:#667eea;box-shadow:0 0 0 3px #667eea22
+}
+textarea{width:100%;min-height:80px;margin-top:10px;resize:vertical}
+.feedback{
+  margin-top:10px;padding:9px 12px;border-radius:8px;
+  font-weight:bold;display:none
+}
+.feedback.show{display:block}
+.feedback.correct{background:#dff5e3;color:#23632c}
+.feedback.incorrect{background:#ffe1e1;color:#8b2929}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:26px 0 10px}
+button{
+  border:0;border-radius:50px;padding:14px 25px;min-height:48px;
+  font-size:16px;font-weight:bold;cursor:pointer
+}
+#check{background:linear-gradient(135deg,#667eea,#764ba2);color:white}
+#reset{background:#eceef4;color:#333}
+button:hover{filter:brightness(1.04)}
+.result{text-align:center;font-size:20px;font-weight:bold;min-height:30px}
+.progress-wrap{margin:16px 0}
+.progress-label{display:flex;justify-content:space-between;font-size:14px;color:#667}
+.progress{height:10px;background:#e8eaf0;border-radius:20px;overflow:hidden}
+.progress-bar{height:100%;width:0;background:#667eea;transition:width .3s}
+@media(max-width:600px){
+  body{padding:10px}.container{padding:20px 15px}
+  input{width:100px}.exercise{padding:14px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📚 First Conditional</h1>
+<p class="subtitle">Интерактивный рабочий лист для 9 класса</p>
+
+<div class="info">
+<h3>💡 Краткая справка</h3>
+<p><strong>First Conditional</strong> используется для описания реальных и вероятных ситуаций в будущем.</p>
+<div class="formula">
+<strong>Формула:</strong> If + Present Simple, will + инфинитив глагола<br>
+<strong>Пример:</strong> If it <u>rains</u>, we <u>will stay</u> at home.
+</div>
+</div>
+
+<div class="progress-wrap">
+<div class="progress-label"><span>Результат</span><span id="score">0 / 10</span></div>
+<div class="progress"><div class="progress-bar" id="progress"></div></div>
+</div>
+
+<section class="section">
+<h2 class="section-title">Часть 1: Раскрытие скобок</h2>
+<p>Введите правильную форму глагола в скобках:</p>
+
+<div class="exercise" id="ex1">
+<span class="num">1</span>
+If the weather <input id="q1a" placeholder="be"> nice this weekend, we
+<input id="q1b" placeholder="go"> hiking in the mountains.
+<div class="feedback" id="f1"></div>
+</div>
+
+<div class="exercise" id="ex2">
+<span class="num">2</span>
+You <input id="q2a" placeholder="not/finish"> your project on time if you
+<input id="q2b" placeholder="not/start"> it right now.
+<div class="feedback" id="f2"></div>
+</div>
+
+<div class="exercise" id="ex3">
+<span class="num">3</span>
+If she <input id="q3a" placeholder="get"> a good grade on this test, her parents
+<input id="q3b" placeholder="buy"> her a new laptop.
+<div class="feedback" id="f3"></div>
+</div>
+
+<div class="exercise" id="ex4">
+<span class="num">4</span>
+They <input id="q4a" placeholder="be"> very disappointed if the school
+<input id="q4b" placeholder="cancel"> the trip.
+<div class="feedback" id="f4"></div>
+</div>
+
+<div class="exercise" id="ex5">
+<span class="num">5</span>
+If you <input id="q5a" placeholder="help"> me with the chores, I
+<input id="q5b" placeholder="let"> you borrow my favorite book.
+<div class="feedback" id="f5"></div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Часть 2: Творческие задания</h2>
+<p>Закончите предложения своими идеями:</p>
+
+<div class="exercise"><span class="num">1</span>If I have free time this weekend, I
+<textarea placeholder="Напишите ваше продолжение..."></textarea></div>
+
+<div class="exercise"><span class="num">2</span>My English teacher will be very happy if
+<textarea placeholder="Напишите ваше продолжение..."></textarea></div>
+
+<div class="exercise"><span class="num">3</span>If it rains during our school trip, we
+<textarea placeholder="Напишите ваше продолжение..."></textarea></div>
+
+<div class="exercise"><span class="num">4</span>I will feel really proud of myself if
+<textarea placeholder="Напишите ваше продолжение..."></textarea></div>
+
+<div class="exercise"><span class="num">5</span>If my best friend asks me for advice, I
+<textarea placeholder="Напишите ваше продолжение..."></textarea></div>
+</section>
+
+<div class="checklist">
+<h3>💡 Чек-лист для самопроверки</h3>
+<ul>
+<li>В части с <strong>if</strong> глагол стоит в форме <strong>Present Simple</strong></li>
+<li>В главной части предложения используется <strong>will + глагол</strong></li>
+<li>Есть ли запятая, если предложение начинается с <strong>If</strong></li>
+</ul>
+</div>
+
+<div class="actions">
+<button id="check" type="button">✓ Проверить ответы</button>
+<button id="reset" type="button">↻ Начать заново</button>
+</div>
+<div class="result" id="result" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+const answers={
+1:{a:["is"],b:["will go","'ll go"]},
+2:{a:["won't finish","will not finish"],b:["don't start","do not start"]},
+3:{a:["gets"],b:["will buy","'ll buy"]},
+4:{a:["will be","'ll be"],b:["cancels"]},
+5:{a:["help"],b:["will let","'ll let"]}
+};
+
+function normalize(s){
+return s.trim().toLowerCase().replace(/[.!?,]/g,"").replace(/\s+/g," ");
+}
+
+document.getElementById("check").addEventListener("click",function(){
+let points=0;
+for(let i=1;i<=5;i++){
+const a=normalize(document.getElementById("q"+i+"a").value);
+const b=normalize(document.getElementById("q"+i+"b").value);
+const okA=answers[i].a.map(normalize).includes(a);
+const okB=answers[i].b.map(normalize).includes(b);
+const ex=document.getElementById("ex"+i);
+const f=document.getElementById("f"+i);
+ex.classList.remove("correct","incorrect");
+f.classList.remove("show","correct","incorrect");
+f.classList.add("show");
+if(okA) points++;
+if(okB) points++;
+if(okA && okB){
+ex.classList.add("correct");
+f.classList.add("correct");
+f.innerHTML="✓ Отлично! Правильный ответ: <strong>"+answers[i].a[0]+", "+answers[i].b[0]+"</strong>";
+}else{
+ex.classList.add("incorrect");
+f.classList.add("incorrect");
+f.innerHTML="✗ Правильный ответ: <strong>"+answers[i].a[0]+", "+answers[i].b[0]+"</strong>";
+}
+}
+document.getElementById("score").textContent=points+" / 10";
+document.getElementById("progress").style.width=(points*10)+"%";
+document.getElementById("result").textContent=
+points===10 ? "🎉 Отлично! Все ответы правильные!" :
+"Результат: "+points+" из 10. Проверьте ошибки и попробуйте ещё раз.";
+});
+
+document.getElementById("reset").addEventListener("click",function(){
+document.querySelectorAll("input,textarea").forEach(function(el){el.value=""});
+document.querySelectorAll(".exercise").forEach(function(el){
+el.classList.remove("correct","incorrect");
+});
+document.querySelectorAll(".feedback").forEach(function(el){
+el.className="feedback";el.innerHTML="";
+});
+document.getElementById("score").textContent="0 / 10";
+document.getElementById("progress").style.width="0%";
+document.getElementById("result").textContent="";
+});
+})();
+</script>
+</body>
+</html>
