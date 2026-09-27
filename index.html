@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Conditional — Рабочий лист</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:20px;font-family:Arial,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;color:#333}
+.container{max-width:900px;margin:auto;background:#fff;border-radius:18px;padding:30px;box-shadow:0 15px 40px rgba(0,0,0,.25)}
+h1{text-align:center;color:#667eea;margin:0 0 8px}.subtitle{text-align:center;color:#666;margin-bottom:25px}
+.info{background:#f1f3ff;border-left:5px solid #667eea;padding:18px;border-radius:10px;margin-bottom:25px}
+.formula{background:#fff;border:2px dashed #667eea;padding:12px;border-radius:8px;margin-top:10px}
+h2{color:#764ba2;border-bottom:3px solid #667eea;padding-bottom:8px}
+.exercise{background:#f8f9ff;border:2px solid #e8ecff;border-radius:12px;padding:18px;margin:12px 0;line-height:2}
+.num{display:inline-block;background:#667eea;color:#fff;border-radius:50%;width:30px;height:30px;text-align:center;line-height:30px;font-weight:bold;margin-right:8px}
+input,textarea{font:inherit;border:2px solid #ddd;border-radius:7px;padding:7px 10px}
+input{width:100px} textarea{width:100%;min-height:65px;margin-top:10px}
+button{display:block;margin:22px auto;padding:13px 30px;border:0;border-radius:30px;background:#667eea;color:#fff;font-size:18px;font-weight:bold;cursor:pointer}
+.feedback{display:none;padding:8px;border-radius:7px;font-weight:bold}
+.correct{display:block;background:#d4edda;color:#155724}.incorrect{display:block;background:#f8d7da;color:#721c24}
+.check{background:#fff3cd;padding:18px;border-radius:10px;margin-top:25px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📚 First Conditional</h1>
+<div class="subtitle">Рабочий лист для 9 класса</div>
+<div class="info"><h3>💡 Краткая справка</h3>
+<p><b>First Conditional</b> используется для описания реальных и вероятных ситуаций в будущем.</p>
+<div class="formula"><b>Формула:</b> If + Present Simple, will + инфинитив глагола<br><b>Пример:</b> If it <u>rains</u>, we <u>will stay</u> at home.</div></div>
+
+<h2>Часть 1: Раскрытие скобок</h2>
+<p>Введите правильную форму глагола в скобках:</p>
+<div id="questions"></div>
+<button onclick="checkAnswers()">✓ Проверить ответы</button>
+
+<h2>Часть 2: Творческие задания</h2>
+<p>Закончите предложения своими идеями:</p>
+<div class="exercise"><span class="num">1</span>If I have free time this weekend, I<textarea placeholder="Напишите ваше продолжение..."></textarea></div>
+<div class="exercise"><span class="num">2</span>My English teacher will be very happy if<textarea placeholder="Напишите ваше продолжение..."></textarea></div>
+<div class="exercise"><span class="num">3</span>If it rains during our school trip, we<textarea placeholder="Напишите ваше продолжение..."></textarea></div>
+<div class="exercise"><span class="num">4</span>I will feel really proud of myself if<textarea placeholder="Напишите ваше продолжение..."></textarea></div>
+<div class="exercise"><span class="num">5</span>If my best friend asks me for advice, I<textarea placeholder="Напишите ваше продолжение..."></textarea></div>
+
+<div class="check"><h3>💡 Чек-лист для самопроверки</h3>
+<p>✓ В части с <b>if</b> глагол стоит в форме <b>Present Simple</b></p>
+<p>✓ В главной части используется <b>will + глагол</b></p>
+<p>✓ Есть запятая, если предложение начинается с <b>If</b></p></div>
+</div>
+
+<script>
+const data=[
+["If the weather","be","nice this weekend, we","go","hiking in the mountains."],
+["You","not/finish","your project on time if you","not/start","it right now."],
+["If she","get","a good grade on this test, her parents","buy","her a new laptop."],
+["They","be","very disappointed if the school","cancel","the trip."],
+["If you","help","me with the chores, I","let","you borrow my favorite book."]
+];
+const answers=[
+["is","will go"],["won't finish","don't start"],["gets","will buy"],["will be","cancels"],["help","will let"]
+];
+const q=document.getElementById("questions");
+data.forEach((x,i)=>{
+ q.innerHTML+=`<div class="exercise"><span class="num">${i+1}</span>${x[0]} <input id="q${i}a" placeholder="${x[1]}"> ${x[2]} <input id="q${i}b" placeholder="${x[3]}"> ${x[4]}<div id="f${i}" class="feedback"></div></div>`;
+});
+function checkAnswers(){
+ answers.forEach((a,i)=>{
+  const va=document.getElementById("q"+i+"a").value.trim().toLowerCase();
+  const vb=document.getElementById("q"+i+"b").value.trim().toLowerCase();
+  const ok=va===a[0] || (i===1 && va==="will not finish");
+  const ok2=vb===a[1] || (i===1 && vb==="do not start");
+  const f=document.getElementById("f"+i);
+  f.className="feedback "+(ok&&ok2?"correct":"incorrect");
+  f.innerHTML=(ok&&ok2?"✓ Отлично!":"✗ Правильный ответ: ")+"<b>"+a[0]+"</b>, <b>"+a[1]+"</b>";
+ });
+}
+</script>
+</body>
+</html>
